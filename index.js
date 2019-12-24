@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser')
 const app = express();
+const Port = process.env.PORT
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors())
@@ -38,7 +39,7 @@ app.post('/get-data',async (req,res)=>{
     res.json({emails,num})
 })
 
-app.listen(3000,()=>{
+app.listen((3000||port),()=>{
   console.log('app running on port 3000')
 })
 
