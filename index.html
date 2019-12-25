@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="axios.min.js"></script>
+    <script src="jQuery.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contact Extractor</title>
     <style>
@@ -76,29 +76,6 @@
     <footer>
 
     </footer>
-    <script>
-        const fetchData = async ()=>{
-            const url ='http://localhost:3000/get-data';
-
-            axios.post(url).then((response)=>{
-                $('#emails').empty();
-                $('#numbers').empty();
-                let emails = Array.from(response.data.emails);
-                let phoneNumbers = Array.from(response.data.num)
-                console.log(response.data.emails,phoneNumbers)
-
-                emails.forEach((email)=>{
-                    $('#emails').append(`<li>${email}</li>`)
-                })
-
-                phoneNumbers.forEach((phoneNumber)=>{
-                    $('#numbers').append(`<li>${phoneNumber}</li>`)
-                })
-            }).catch((error)=>{
-                console.log(error)
-            })
-        }
-        document.querySelector('button').addEventListener('click', fetchData)
-    </script>
+    <script src="function.js"></script>  
 </body>
 </html>
